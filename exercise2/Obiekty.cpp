@@ -26,13 +26,7 @@ Point::Point(double x, double y) {
 // }
 
 ostream& operator<<(ostream& stream, Point p) {
-  stream << p.x << "," << p.y;
-  return stream;
-}
-
-istream& operator>>(istream& stream, Point& p) {
-  char sign;
-  stream >> p.x >> sign >> p.y;
+  stream << "[" << p.x << ", " << p.y << "]";
   return stream;
 }
 
@@ -58,12 +52,37 @@ Matrix::Matrix(double mxx, double myy, double mxy) {
 // }
 
 ostream& operator<<(ostream& stream, Matrix m) {
-  stream << m.mxx << "," << m.myy << "," << m.mxy;
+  stream << "[[" << m.mxx << "][" << m.mxy << "]] ";
+  stream << "[[" << m.mxy << "][" << m.myy << "]]";
   return stream;
 }
 
-istream& operator>>(istream& stream, Matrix& m) {
-  char sign;
-  stream >> m.mxx >> sign >> m.myy >> sign >> m.mxy;
-  return stream;
+Matrix operator-(Matrix a, Matrix b){
+  Matrix result;
+  result.mxx = a.mxx - b.mxx;
+  result.myy = a.myy - b.myy;
+  result.mxy = a.mxy - b.mxy;
+  return result;
+}
+
+Matrix operator-=(Matrix& a, Matrix b) {
+  a.mxx = a.mxx - b.mxx;
+  a.myy = a.myy - b.myy;
+  a.mxy = a.mxy - b.mxy;
+  return a;
+}
+
+Matrix operator*(Matrix a, double s) {
+  Matrix result;
+  result.mxx = a.mxx * s;
+  result.myy = a.myy * s;
+  result.mxy = a.mxy * s;
+  return result;
+}
+Matrix operator*(double s, Matrix a) {
+  Matrix result;
+  result.mxx = a.mxx * s;
+  result.myy = a.myy * s;
+  result.mxy = a.mxy * s;
+  return result;
 }

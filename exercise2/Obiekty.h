@@ -4,6 +4,9 @@
   File: Obiekty.h
 */
 
+// GitGut
+// http://en.cppreference.com/w/cpp/language/operators
+
 #include <iostream>
 using namespace std;
 
@@ -14,7 +17,6 @@ public:
 	// ~Point();
 
 	friend ostream& operator<<(ostream&, Point);
-	friend istream& operator>>(istream&, Point&);
 
 private:
   double x, y;
@@ -33,7 +35,10 @@ public:
 	// ~Matrix();
 
 	friend ostream& operator<<(ostream&, Matrix);
-	friend istream& operator>>(istream&, Matrix&);
+	friend Matrix operator-(Matrix a, Matrix b);
+	friend Matrix operator-=(Matrix& a, Matrix b);
+	friend Matrix operator*(Matrix a, double s);
+	friend Matrix operator*(double s, Matrix a);
 
 private:
   double mxx, myy, mxy;
