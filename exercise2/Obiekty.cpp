@@ -54,17 +54,12 @@ double& Point::operator [](int n) {
 
 // Multiply point with matrix
 // 1x2 * 2x2 -> 1x2
-// Point Point::operator*(Matrix& m) {
-//   Point result;
-//   result.x = this -> x * m.mxx + this -> y * m.mxy;
-//   result.y = this -> x * m.mxy + this -> y * m.myy;
-//   return result;
-// }
-
-// double getMxx(Matrix& m) {
-//   return m.mxx;
-// }
-
+Point Point::operator*(Matrix& m) {
+  Point result;
+  result.x = this -> x * m.mxx + this -> y * m.mxy;
+  result.y = this -> x * m.mxy + this -> y * m.myy;
+  return result;
+}
 
 /**
  * Matrix class

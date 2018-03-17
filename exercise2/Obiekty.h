@@ -30,9 +30,7 @@ public:
 
 	// Multiply point with matrix
 	// 1x2 * 2x2 -> 1x2
-	// friend Point operator*(Matrix&);
-
-	// friend double getMxx(Matrix&);
+	Point operator*(Matrix& m);
 
 private:
   double x, y;
@@ -43,7 +41,7 @@ private:
  [ mxx ][ mxy ]
  [ mxy ][ myy ]
  */
- 
+
 class Matrix {
 public:
 	/* Constructors */
@@ -81,11 +79,7 @@ public:
 	/* Comparision */
 	bool operator<(Matrix& b);
 
-
-	// friend Point operator*(Matrix&);
-
-
-	// friend double getMxx(Matrix&);
+	friend Point Point::operator*(Matrix& m);
 
 private:
 	double mxx, myy, mxy;

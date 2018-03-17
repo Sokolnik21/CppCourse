@@ -31,14 +31,12 @@ int main() {
   cout << p5[0] << endl;
   cout << p5[1] << endl;
 
-  p5[3] = 2.7;
+  p5[1] = 2.7;
   cout << p5 << endl;
 
-
-  // cout << getMxx(m2) << endl;
-  // Point p1(2, 2);
-  // Point p2 = p1 * m2;
-  // cout << p2 << endl;
+  Point p1(2, 2);
+  Point p2 = p1 * m2;
+  cout << p2 << endl;
 
   return 0;
 }

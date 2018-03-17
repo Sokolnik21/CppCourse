@@ -3,3 +3,6 @@ compile:
 
 run:
 	./Exercise2.out
+
+delete:
+	rm *.out
