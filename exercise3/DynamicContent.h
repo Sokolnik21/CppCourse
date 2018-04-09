@@ -6,11 +6,12 @@ class Group;
 class Person {
 public:
   /* Constructor */
-  Person(string name = "Jan", int birth = 31);
+  Person(string name = "Ala", int birth = 31);
 
-  // /* Destructor */
-  // ~Person();
-// private:
+  /* Describe */
+  void describePerson();
+
+private:
   string name;
   int birth;
 };
@@ -18,6 +19,7 @@ public:
 class Group {
 public:
   /* Constructors */
+  /* Basic constructor */
   Group(int storage = 20);
   /* Copy constructor */
   Group(const Group &group);
@@ -29,11 +31,16 @@ public:
 
   /* Operators */
   Group& operator=(const Group &group);
+  /* Move assignment operator */
+  Group& operator=(Group &&group);
 
   /* Getter */
   int getElementsQuantity();
+  int getStorage();
 
-// private:
+  void addPerson(Person p);
+
+private:
   Person *array;
   int storage;
   int actualSize;
