@@ -14,7 +14,7 @@ namespace Cowboy {
 		Product(const std::string& _name, const Data& _production);
 		virtual ~Product() { }
 		virtual std::string description() const;
-		virtual float priceToPay() const { }
+		virtual float priceToPay() const = 0;	// abstract function
 		bool write(std::ostream & os) const;
 		bool load(std::istream & is);
 		friend std::ostream& operator<<(std::ostream& stream, const Product& p);
